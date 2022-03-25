@@ -11,6 +11,8 @@ namespace CodeWars_PowersOf2
     {
         static void Main()
         {
+            // https://www.codewars.com/kata/57a083a57cb1f31db7000028/
+
             BigInteger[] output = PowersOfTwo(0);
 
             foreach (var item in output)
