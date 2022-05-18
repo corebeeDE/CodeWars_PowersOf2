@@ -51,14 +51,25 @@ namespace CodeWars_PowersOf2
             Console.WriteLine("--------------------");
         }
 
+        // First solution
         public static BigInteger[] PowersOfTwo(int n)
         {
-            BigInteger[] output = new BigInteger[n+1];
+            BigInteger[] output = new BigInteger[n + 1];
             for (int ctr = 0; ctr <= n; ctr++)
             {
-                output[ctr] = Convert.ToInt64(Math.Pow(2, ctr));
+                BigInteger buffer = 1;
+
+                for(int loopbuff = 0; loopbuff < ctr; loopbuff++)
+                {
+                    buffer *= 2;
+                }
+
+                output[ctr] = ctr == 0 ? 1 : buffer;
             }
             return output;
         }
+
+        // Refactored solution
+        public static BigInteger[] PowersOfTwoRefactored(int n) => Enumerable.Range(0, n+1).Select(x => BigInteger.Pow(2, x)).ToArray();
     }
 }
